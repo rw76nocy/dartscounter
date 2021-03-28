@@ -1,0 +1,32 @@
+<resources>
+    <string name="app_name">DartsAPP</string>
+
+    <string-array name="numbers">
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+        <item>7</item>
+        <item>8</item>
+    </string-array>
+
+    <string-array name="points">
+        <item>301</item>
+        <item>501</item>
+        <item>701</item>
+    </string-array>
+
+    <string-array name="in">
+        <item>Single</item>
+        <item>Double</item>
+        <item>Triple</item>
+    </string-array>
+
+    <string-array name="out">
+        <item>Single</item>
+        <item>Double</item>
+        <item>Master</item>
+    </string-array>
+
+</resources>
