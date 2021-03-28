@@ -51,6 +51,7 @@ public class GameGUI extends AppCompatActivity {
         }
 
         createNewGame();
+        System.out.println("Ich bin ein Test-String");
     }
 
     //Fülle GUI mit den ersten beiden Spielern
