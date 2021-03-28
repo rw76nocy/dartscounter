@@ -51,7 +51,7 @@ public class GameGUI extends AppCompatActivity {
         }
 
         createNewGame();
-        System.out.println("Ich bin ein Test-String");
+        System.out.println("Ich bin ein Test-String für den Development-Branch");
     }
 
     //Fülle GUI mit den ersten beiden Spielern
