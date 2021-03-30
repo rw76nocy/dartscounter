@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <GridLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/GridLayout1"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -8,6 +9,7 @@
     android:useDefaultMargins="true"
     android:layout_centerHorizontal="true"
     android:background="#8B0000"
+
 
     tools:ignore="MissingDefaultResource">
 
@@ -98,42 +100,39 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_columnSpan="4"
-        android:orientation="horizontal"
-        android:columnCount="4"
-        android:useDefaultMargins="true"
         android:background="#8B0000"
-        >
-
+        android:columnCount="4"
+        android:orientation="vertical"
+        android:useDefaultMargins="true"
+        android:layout_marginBottom="100dp">
 
 
         <GridLayout
             android:id="@+id/GridLayout3"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_columnSpan="4"
             android:layout_row="0"
             android:layout_column="0"
-            android:orientation="horizontal"
-            android:columnCount="4"
-            android:useDefaultMargins="true"
+            android:layout_columnSpan="4"
             android:background="#8B0000"
-            >
+            android:columnCount="4"
+            android:orientation="horizontal">
 
             <TextView
                 android:id="@+id/points"
                 android:layout_width="80dp"
-                android:layout_gravity="center_horizontal"
+
                 android:layout_row="0"
                 android:layout_column="0"
                 android:layout_columnWeight="1"
                 android:layout_marginTop="20dp"
+                android:background="@drawable/rounded_corner"
                 android:padding="10dp"
                 android:text="0"
+                android:textAlignment="center"
                 android:textSize="24dip"
                 android:textStyle="bold"
-                android:textAlignment="center"
-                android:background="@drawable/rounded_corner"
-                />
+                app:autoSizeTextType="uniform" />
 
             <TextView
                 android:id="@+id/dart1"
@@ -141,13 +140,12 @@
                 android:layout_row="0"
                 android:layout_column="1"
                 android:layout_columnWeight="1"
-                android:layout_gravity="center_horizontal"
+
                 android:layout_marginTop="20dp"
                 android:text="_"
-                android:textSize="20dp"
-                android:textStyle="bold"
                 android:textAlignment="center"
-                />
+                android:textSize="20dp"
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/dart2"
@@ -155,13 +153,12 @@
                 android:layout_row="0"
                 android:layout_column="2"
                 android:layout_columnWeight="1"
-                android:layout_gravity="center_horizontal"
+
                 android:layout_marginTop="20dp"
                 android:text="_"
-                android:textSize="20dp"
-                android:textStyle="bold"
                 android:textAlignment="center"
-                />
+                android:textSize="20dp"
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/dart3"
@@ -169,304 +166,485 @@
                 android:layout_row="0"
                 android:layout_column="3"
                 android:layout_columnWeight="1"
-                android:layout_gravity="center_horizontal"
+
                 android:layout_marginTop="20dp"
                 android:text="_"
-                android:textSize="20dp"
-                android:textStyle="bold"
                 android:textAlignment="center"
-                />
+                android:textSize="20dp"
+                android:textStyle="bold" />
 
         </GridLayout>
 
-        <Button
-            android:id="@+id/Undo"
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:id="@+id/LinearLayout1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="-10dp"
             android:layout_row="1"
             android:layout_column="0"
-            android:layout_columnWeight="1"
-            android:layout_gravity="center_horizontal"
-            android:backgroundTint="@color/black"
-            android:onClick="undoClick"
-            android:text="Undo" />
+            android:background="#8B0000"
+            android:orientation="horizontal"
+            android:weightSum="4">
 
-        <Button
-            android:id="@+id/Single"
-            android:layout_width="wrap_content"
-            android:layout_row="1"
-            android:layout_column="1"
-            android:layout_columnWeight="1"
-            android:layout_gravity="fill_horizontal"
-            android:backgroundTint="@color/green"
-            android:onClick="singleClick"
-            android:text="Single" />
 
-        <Button
-            android:id="@+id/Double"
-            android:layout_width="wrap_content"
-            android:layout_row="1"
-            android:layout_column="2"
-            android:layout_columnWeight="1"
-            android:layout_gravity="fill_horizontal"
-            android:backgroundTint="@color/black"
-            android:onClick="doubleClick"
-            android:text="Double" />
+            <Button
+                android:id="@+id/Undo"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:backgroundTint="@color/black"
+                android:maxLines="1"
+                android:onClick="undoClick"
+                android:paddingLeft="20sp"
+                android:paddingRight="20sp"
+                android:text="Undo"
+                app:autoSizeMaxTextSize="100sp"
+                app:autoSizeMinTextSize="8sp"
+                app:autoSizeStepGranularity="2sp"
+                app:autoSizeTextType="uniform" />
 
-        <Button
-            android:id="@+id/Triple"
-            android:layout_width="wrap_content"
-            android:layout_row="1"
-            android:layout_column="3"
-            android:layout_columnWeight="1"
-            android:layout_gravity="fill_horizontal"
-            android:backgroundTint="@color/black"
-            android:onClick="tripleClick"
-            android:text="Triple" />
 
-        <Button
-            android:id="@+id/button0"
-            android:layout_width="wrap_content"
+            <Button
+                android:id="@+id/Single"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:layout_weight="1"
+
+                android:backgroundTint="@color/green"
+                android:maxLines="1"
+                android:onClick="singleClick"
+                android:text="Single"
+                app:autoSizeMaxTextSize="100sp"
+                app:autoSizeMinTextSize="8sp"
+                app:autoSizeStepGranularity="2sp"
+                app:autoSizeTextType="uniform" />
+
+            <Button
+                android:id="@+id/Double"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:layout_weight="1"
+
+                android:backgroundTint="@color/black"
+                android:maxLines="1"
+                android:onClick="doubleClick"
+                android:text="Double"
+                app:autoSizeMaxTextSize="100sp"
+                app:autoSizeMinTextSize="8sp"
+                app:autoSizeStepGranularity="2sp"
+                app:autoSizeTextType="uniform" />
+
+            <Button
+                android:id="@+id/Triple"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:layout_weight="1"
+                android:backgroundTint="@color/black"
+                android:maxLines="1"
+                android:onClick="tripleClick"
+                android:text="Triple"
+                app:autoSizeMaxTextSize="100sp"
+                app:autoSizeMinTextSize="8sp"
+                app:autoSizeStepGranularity="2sp"
+                app:autoSizeTextType="uniform" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/GridLayout5"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="-10dp"
             android:layout_row="2"
             android:layout_column="0"
-            android:layout_columnWeight="1"
-            android:layout_gravity="fill_horizontal"
-            android:backgroundTint="@color/black"
-            android:onClick="zeroClick"
-            android:text="0" />
+            android:background="#8B0000"
+            android:orientation="horizontal"
 
-        <Button
-            android:id="@+id/button1"
-            android:layout_width="wrap_content"
-            android:layout_row="2"
-            android:layout_column="1"
-            android:layout_columnWeight="1"
-            android:layout_gravity="fill_horizontal"
-            android:backgroundTint="@color/black"
-            android:onClick="oneClick"
-            android:text="1" />
 
-        <Button
-            android:id="@+id/button2"
-            android:layout_width="wrap_content"
-            android:layout_row="2"
-            android:layout_column="2"
-            android:layout_columnWeight="1"
-            android:layout_gravity="fill_horizontal"
-            android:backgroundTint="@color/black"
-            android:onClick="twoClick"
-            android:text="2" />
+            android:weightSum="4">
 
-        <Button
-            android:id="@+id/button3"
-            android:layout_width="wrap_content"
-            android:layout_row="2"
-            android:layout_column="3"
-            android:layout_columnWeight="1"
-            android:layout_gravity="fill_horizontal"
-            android:backgroundTint="@color/black"
-            android:onClick="threeClick"
-            android:text="3" />
+            <Button
+                android:id="@+id/button0"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:backgroundTint="@color/black"
+                android:maxLines="1"
+                android:onClick="zeroClick"
+                android:text="0"
+                app:autoSizeMaxTextSize="100sp"
+                app:autoSizeMinTextSize="8sp"
+                app:autoSizeStepGranularity="2sp"
+                app:autoSizeTextType="uniform" />
+
+            <Button
+                android:id="@+id/button1"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:layout_weight="1"
+
+                android:backgroundTint="@color/black"
+                android:maxLines="1"
+                android:onClick="oneClick"
+                android:text="1"
+                app:autoSizeMaxTextSize="100sp"
+                app:autoSizeMinTextSize="8sp"
+                app:autoSizeStepGranularity="2sp"
+                app:autoSizeTextType="uniform" />
+
+            <Button
+                android:id="@+id/button2"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:layout_weight="1"
+
+                android:backgroundTint="@color/black"
+                android:maxLines="1"
+                android:onClick="twoClick"
+                android:text="2"
+                app:autoSizeMaxTextSize="100sp"
+                app:autoSizeMinTextSize="8sp"
+                app:autoSizeStepGranularity="2sp"
+                app:autoSizeTextType="uniform" />
+
+            <Button
+                android:id="@+id/button3"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:layout_weight="1"
+
+                android:backgroundTint="@color/black"
+                android:maxLines="1"
+                android:onClick="threeClick"
+                android:text="3"
+                app:autoSizeMaxTextSize="100sp"
+                app:autoSizeMinTextSize="8sp"
+                app:autoSizeStepGranularity="2sp"
+                app:autoSizeTextType="uniform" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/LinearLayout3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="-10dp"
+            android:layout_row="3"
+            android:layout_column="0"
+            android:background="#8B0000"
+            android:orientation="horizontal"
+            android:weightSum="4">
 
         <Button
             android:id="@+id/button4"
-            android:layout_width="wrap_content"
-            android:layout_row="3"
-            android:layout_column="0"
-            android:layout_columnWeight="1"
-            android:layout_gravity="fill_horizontal"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
             android:backgroundTint="@color/black"
             android:onClick="fourClick"
-            android:text="4" />
+            android:text="4"
+            app:autoSizeMaxTextSize="100sp"
+            app:autoSizeMinTextSize="8sp"
+            app:autoSizeStepGranularity="2sp"
+            app:autoSizeTextType="uniform"
+            />
 
         <Button
             android:id="@+id/button5"
-            android:layout_width="wrap_content"
-            android:layout_row="3"
-            android:layout_column="1"
-            android:layout_columnWeight="1"
-            android:layout_gravity="fill_horizontal"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:layout_weight="1"
             android:backgroundTint="@color/black"
             android:onClick="fiveClick"
-            android:text="5" />
+            android:text="5"
+            app:autoSizeMaxTextSize="100sp"
+            app:autoSizeMinTextSize="8sp"
+            app:autoSizeStepGranularity="2sp"
+            app:autoSizeTextType="uniform"
+            />
 
         <Button
             android:id="@+id/button6"
-            android:layout_width="wrap_content"
-            android:layout_row="3"
-            android:layout_column="2"
-            android:layout_columnWeight="1"
-            android:layout_gravity="fill_horizontal"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:layout_weight="1"
             android:backgroundTint="@color/black"
             android:onClick="sixClick"
-            android:text="6" />
+            android:text="6"
+            app:autoSizeMaxTextSize="100sp"
+            app:autoSizeMinTextSize="8sp"
+            app:autoSizeStepGranularity="2sp"
+            app:autoSizeTextType="uniform"
+            />
 
         <Button
             android:id="@+id/button7"
-            android:layout_width="wrap_content"
-            android:layout_row="3"
-            android:layout_column="3"
-            android:layout_columnWeight="1"
-            android:layout_gravity="fill_horizontal"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:layout_weight="1"
             android:backgroundTint="@color/black"
             android:onClick="sevenClick"
-            android:text="7" />
+            android:text="7"
+            app:autoSizeMaxTextSize="100sp"
+            app:autoSizeMinTextSize="8sp"
+            app:autoSizeStepGranularity="2sp"
+            app:autoSizeTextType="uniform"
+            />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/LinearLayout4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="-10dp"
+            android:layout_row="4"
+            android:layout_column="0"
+            android:background="#8B0000"
+            android:orientation="horizontal"
+            android:weightSum="4">
 
         <Button
             android:id="@+id/button8"
-            android:layout_width="wrap_content"
-            android:layout_row="4"
-            android:layout_column="0"
-            android:layout_columnWeight="1"
-            android:layout_gravity="fill_horizontal"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            app:autoSizeMaxTextSize="100sp"
+            app:autoSizeMinTextSize="8sp"
+            app:autoSizeStepGranularity="2sp"
+            app:autoSizeTextType="uniform"
             android:backgroundTint="@color/black"
             android:onClick="eightClick"
             android:text="8" />
 
         <Button
             android:id="@+id/button9"
-            android:layout_width="wrap_content"
-            android:layout_row="4"
-            android:layout_column="1"
-            android:layout_columnWeight="1"
-            android:layout_gravity="fill_horizontal"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:layout_weight="1"
+            app:autoSizeMaxTextSize="100sp"
+            app:autoSizeMinTextSize="8sp"
+            app:autoSizeStepGranularity="2sp"
+            app:autoSizeTextType="uniform"
             android:backgroundTint="@color/black"
             android:onClick="nineClick"
             android:text="9" />
 
         <Button
             android:id="@+id/button10"
-            android:layout_width="wrap_content"
-            android:layout_row="4"
-            android:layout_column="2"
-            android:layout_columnWeight="1"
-            android:layout_gravity="fill_horizontal"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:layout_weight="1"
+            app:autoSizeMaxTextSize="100sp"
+            app:autoSizeMinTextSize="8sp"
+            app:autoSizeStepGranularity="2sp"
+            app:autoSizeTextType="uniform"
             android:backgroundTint="@color/black"
             android:onClick="tenClick"
             android:text="10" />
 
         <Button
             android:id="@+id/button11"
-            android:layout_width="wrap_content"
-            android:layout_row="4"
-            android:layout_column="3"
-            android:layout_columnWeight="1"
-            android:layout_gravity="fill_horizontal"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:layout_weight="1"
+            app:autoSizeMaxTextSize="100sp"
+            app:autoSizeMinTextSize="8sp"
+            app:autoSizeStepGranularity="2sp"
+            app:autoSizeTextType="uniform"
             android:backgroundTint="@color/black"
             android:onClick="elevenClick"
             android:text="11" />
 
-        <Button
-            android:id="@+id/button12"
-            android:layout_width="wrap_content"
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/LinearLayout5"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="-10dp"
             android:layout_row="5"
             android:layout_column="0"
-            android:layout_columnWeight="1"
-            android:layout_gravity="fill_horizontal"
+            android:background="#8B0000"
+            android:orientation="horizontal"
+            android:weightSum="4">
+
+        <Button
+            android:id="@+id/button12"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            app:autoSizeMaxTextSize="100sp"
+            app:autoSizeMinTextSize="8sp"
+            app:autoSizeStepGranularity="2sp"
+            app:autoSizeTextType="uniform"
             android:backgroundTint="@color/black"
             android:onClick="twelveClick"
             android:text="12" />
 
         <Button
             android:id="@+id/button13"
-            android:layout_width="wrap_content"
-            android:layout_row="5"
-            android:layout_column="1"
-            android:layout_columnWeight="1"
-            android:layout_gravity="fill_horizontal"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:layout_weight="1"
+            app:autoSizeMaxTextSize="100sp"
+            app:autoSizeMinTextSize="8sp"
+            app:autoSizeStepGranularity="2sp"
+            app:autoSizeTextType="uniform"
             android:backgroundTint="@color/black"
             android:onClick="thirteenClick"
             android:text="13" />
 
         <Button
             android:id="@+id/button14"
-            android:layout_width="wrap_content"
-            android:layout_row="5"
-            android:layout_column="2"
-            android:layout_columnWeight="1"
-            android:layout_gravity="fill_horizontal"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:layout_weight="1"
+            app:autoSizeMaxTextSize="100sp"
+            app:autoSizeMinTextSize="8sp"
+            app:autoSizeStepGranularity="2sp"
+            app:autoSizeTextType="uniform"
             android:backgroundTint="@color/black"
             android:onClick="fourteenClick"
             android:text="14" />
 
         <Button
             android:id="@+id/button15"
-            android:layout_width="wrap_content"
-            android:layout_row="5"
-            android:layout_column="3"
-            android:layout_columnWeight="1"
-            android:layout_gravity="fill_horizontal"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:layout_weight="1"
+            app:autoSizeMaxTextSize="100sp"
+            app:autoSizeMinTextSize="8sp"
+            app:autoSizeStepGranularity="2sp"
+            app:autoSizeTextType="uniform"
             android:backgroundTint="@color/black"
             android:onClick="fifteenClick"
             android:text="15" />
 
-        <Button
-            android:id="@+id/button16"
-            android:layout_width="wrap_content"
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/LinearLayout6"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="-10dp"
             android:layout_row="6"
             android:layout_column="0"
-            android:layout_columnWeight="1"
-            android:layout_gravity="fill_horizontal"
+            android:background="#8B0000"
+            android:orientation="horizontal"
+            android:weightSum="4">
+
+        <Button
+            android:id="@+id/button16"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            app:autoSizeMaxTextSize="100sp"
+            app:autoSizeMinTextSize="8sp"
+            app:autoSizeStepGranularity="2sp"
+            app:autoSizeTextType="uniform"
             android:backgroundTint="@color/black"
             android:onClick="sixteenClick"
             android:text="16" />
 
         <Button
             android:id="@+id/button17"
-            android:layout_width="wrap_content"
-            android:layout_row="6"
-            android:layout_column="1"
-            android:layout_columnWeight="1"
-            android:layout_gravity="fill_horizontal"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:layout_weight="1"
+            app:autoSizeMaxTextSize="100sp"
+            app:autoSizeMinTextSize="8sp"
+            app:autoSizeStepGranularity="2sp"
+            app:autoSizeTextType="uniform"
             android:backgroundTint="@color/black"
             android:onClick="seventeenClick"
             android:text="17" />
 
         <Button
             android:id="@+id/button18"
-            android:layout_width="wrap_content"
-            android:layout_row="6"
-            android:layout_column="2"
-            android:layout_columnWeight="1"
-            android:layout_gravity="fill_horizontal"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:layout_weight="1"
+            app:autoSizeMaxTextSize="100sp"
+            app:autoSizeMinTextSize="8sp"
+            app:autoSizeStepGranularity="2sp"
+            app:autoSizeTextType="uniform"
             android:backgroundTint="@color/black"
             android:onClick="eightteenClick"
             android:text="18" />
 
         <Button
             android:id="@+id/button19"
-            android:layout_width="wrap_content"
-            android:layout_row="6"
-            android:layout_column="3"
-            android:layout_columnWeight="1"
-            android:layout_gravity="fill_horizontal"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:layout_weight="1"
+            app:autoSizeMaxTextSize="100sp"
+            app:autoSizeMinTextSize="8sp"
+            app:autoSizeStepGranularity="2sp"
+            app:autoSizeTextType="uniform"
             android:backgroundTint="@color/black"
             android:onClick="nineteenClick"
             android:text="19" />
 
-        <Button
-            android:id="@+id/button20"
-            android:layout_width="wrap_content"
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/LinearLayout7"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
             android:layout_row="7"
             android:layout_column="0"
-            android:layout_columnSpan="2"
-            android:layout_columnWeight="1"
-            android:layout_gravity="fill_horizontal"
+            android:background="#8B0000"
+            android:orientation="horizontal"
+            android:weightSum="2">
+
+        <Button
+            android:id="@+id/button20"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            app:autoSizeMaxTextSize="100sp"
+            app:autoSizeMinTextSize="8sp"
+            app:autoSizeStepGranularity="2sp"
+            app:autoSizeTextType="uniform"
             android:backgroundTint="@color/black"
             android:onClick="twentyClick"
             android:text="20" />
 
         <Button
             android:id="@+id/bull"
-            android:layout_width="wrap_content"
-            android:layout_row="7"
-            android:layout_column="2"
-            android:layout_columnSpan="2"
-            android:layout_columnWeight="1"
-            android:layout_gravity="fill_horizontal"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:layout_weight="1"
+            app:autoSizeMaxTextSize="100sp"
+            app:autoSizeMinTextSize="8sp"
+            app:autoSizeStepGranularity="2sp"
+            app:autoSizeTextType="uniform"
             android:backgroundTint="@color/black"
             android:onClick="bullClick"
             android:text="Bull" />
 
+        </LinearLayout>
     </GridLayout>
 
 
