@@ -93,7 +93,6 @@ public class ChooseMenu extends AppCompatActivity {
                     alert.show();
                 }
 
-
             }
         });
 

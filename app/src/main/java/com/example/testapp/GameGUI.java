@@ -60,6 +60,13 @@ public class GameGUI extends AppCompatActivity {
         game.setActive(players.get(0));
 
 
+        int last = findLastPlayer(game.getActive());
+
+        TextView name3 = findViewById(R.id.name3);
+        name3.setText(game.getPlayers().get(last).getName());
+
+        TextView points3 = findViewById(R.id.points3);
+        points3.setText(""+game.getPlayers().get(last).getPoints());
 
 
         TextView name1 = findViewById(R.id.name1);
@@ -67,6 +74,7 @@ public class GameGUI extends AppCompatActivity {
 
         TextView points1 = findViewById(R.id.points1);
         points1.setText(""+game.getPlayers().get(0).getPoints());
+
 
         int next = findNextPlayer(game.getActive());
 
@@ -102,7 +110,9 @@ public class GameGUI extends AppCompatActivity {
     }
 
     //Zeige die Namen für den aktiven und den nächsten Spieler an
-    public void showPlayers(Player active,Player next){
+    public void showPlayers(Player last,Player active,Player next){
+        TextView name3 = findViewById(R.id.name3);
+        name3.setText(last.getName());
         TextView name1 = findViewById(R.id.name1);
         name1.setText(active.getName());
         TextView name2 = findViewById(R.id.name2);
@@ -112,8 +122,11 @@ public class GameGUI extends AppCompatActivity {
     //Zeige die Punkte für den aktiven und den nächsten Spieler an
     public void showPoints(){
         Player active = game.getActive();
+        Player last = game.getPlayers().get(findLastPlayer(active));
         Player next = game.getPlayers().get(findNextPlayer(active));
 
+        TextView points3 = findViewById(R.id.points3);
+        points3.setText(""+last.getPoints());
         TextView points1 = findViewById(R.id.points1);
         points1.setText(""+active.getPoints());
         TextView points2 = findViewById(R.id.points2);
@@ -432,8 +445,10 @@ public class GameGUI extends AppCompatActivity {
                 Player next = game.getActive();
                 Player activ = last;
                 game.setActive(activ);
+                index = findLastPlayer(activ);
+                last = game.getPlayers().get(index);
                 //Zeige Spieler und Punkte an
-                showPlayers(activ,next);
+                showPlayers(last,activ,next);
                 showPoints();
             }
         }
@@ -461,9 +476,10 @@ public class GameGUI extends AppCompatActivity {
             nextIndex = 0;
         }
         game.setActive(game.getPlayers().get(nextIndex));
+        Player last = game.getPlayers().get(findLastPlayer(game.getActive()));
         Player next = game.getPlayers().get(findNextPlayer(game.getActive()));
 
-        showPlayers(game.getActive(), next);
+        showPlayers(last, game.getActive(), next);
         clearDartsPoints();
         clearPoints();
         showPoints();
@@ -475,10 +491,12 @@ public class GameGUI extends AppCompatActivity {
         if(nextIndex == game.getPlayers().size()){
             nextIndex = 0;
         }
+
+        Player last = game.getActive();
         game.setActive(game.getPlayers().get(nextIndex));
         Player next = game.getPlayers().get(findNextPlayer(game.getActive()));
 
-        showPlayers(game.getActive(), next);
+        showPlayers(last, game.getActive(), next);
         clearDartsPoints();
         clearPoints();
         showPoints();
