@@ -16,6 +16,7 @@ import android.widget.Spinner;
 import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -82,9 +83,16 @@ public class ChooseMenu extends AppCompatActivity {
         alert.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int whichButton) {
 
-                names.add(String.valueOf(input.getText()));
-                System.out.println("Spielername: "+String.valueOf(input.getText()));
-                addToTable(String.valueOf(input.getText()));
+                if(!String.valueOf(input.getText()).equals("")){
+                    names.add(String.valueOf(input.getText()));
+                    System.out.println("Spielername: "+String.valueOf(input.getText()));
+                    addToTable(String.valueOf(input.getText()));
+                }else{
+                    AlertDialog.Builder alert = new AlertDialog.Builder(ChooseMenu.this);
+                    alert.setMessage("Playername is not valid!");
+                    alert.show();
+                }
+
 
             }
         });
