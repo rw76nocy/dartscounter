@@ -41,12 +41,14 @@
 
     <TextView
         android:id="@+id/avg3"
+        android:layout_width="60dp"
         android:layout_column="3"
         android:layout_row="0"
         android:layout_marginRight="50dp"
         android:text="0,0"
         android:textSize="20dp"
         android:textStyle="bold"
+        android:textAlignment="center"
         />
 
     <TextView
@@ -88,12 +90,14 @@
 
     <TextView
         android:id="@+id/avg1"
+        android:layout_width="60dp"
         android:layout_column="3"
         android:layout_row="1"
         android:layout_marginRight="50dp"
         android:text="0,0"
         android:textSize="20dp"
         android:textStyle="bold"
+        android:textAlignment="center"
         />
 
     <TextView
@@ -125,12 +129,14 @@
 
     <TextView
         android:id="@+id/avg2"
+        android:layout_width="60dp"
         android:layout_column="3"
         android:layout_row="2"
         android:layout_marginRight="50dp"
         android:text="0,0"
         android:textSize="20dp"
         android:textStyle="bold"
+        android:textAlignment="center"
         />
 
     <GridLayout

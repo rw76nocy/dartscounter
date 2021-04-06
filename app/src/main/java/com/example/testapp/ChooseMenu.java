@@ -33,6 +33,35 @@ public class ChooseMenu extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_choose_menu);
+
+        Intent intent = getIntent();
+        String points = intent.getStringExtra("points");
+        String in = intent.getStringExtra("in");
+        String out = intent.getStringExtra("out");
+        ArrayList<String> names = intent.getStringArrayListExtra("names");
+
+        //Werte in Spinner eintragen
+        if(points!=null){
+            Spinner sp1 = findViewById(R.id.numberPoints);
+            sp1.setSelection(((ArrayAdapter)sp1.getAdapter()).getPosition(points));
+        }
+
+        if(in!=null){
+            Spinner sp2 = findViewById(R.id.inOption);
+            sp2.setSelection(((ArrayAdapter)sp2.getAdapter()).getPosition(in));
+        }
+
+        if(out!=null){
+            Spinner sp3 = findViewById(R.id.outOption);
+            sp3.setSelection(((ArrayAdapter)sp3.getAdapter()).getPosition(out));
+        }
+        //Namen in Liste eintragen
+        if(names!=null){
+            for(String name: names){
+                addToTable(name);
+            }
+        }
+
     }
 
     public void setClick(View view) {
@@ -74,7 +103,6 @@ public class ChooseMenu extends AppCompatActivity {
     public void plusClick(View view) {
 
         AlertDialog.Builder alert = new AlertDialog.Builder(this);
-        //alert.setTitle("Name of the Player");
         alert.setMessage("Please enter the player name:");
 
         final EditText input = new EditText(this);

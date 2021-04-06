@@ -68,6 +68,9 @@ public class GameGUI extends AppCompatActivity {
         TextView points3 = findViewById(R.id.points3);
         points3.setText(""+game.getPlayers().get(last).getPoints());
 
+        TextView avg3 = findViewById(R.id.avg3);
+        avg3.setText(""+game.getPlayers().get(last).getAverage());
+
 
         TextView name1 = findViewById(R.id.name1);
         name1.setText(game.getPlayers().get(0).getName());
@@ -75,6 +78,8 @@ public class GameGUI extends AppCompatActivity {
         TextView points1 = findViewById(R.id.points1);
         points1.setText(""+game.getPlayers().get(0).getPoints());
 
+        TextView avg1 = findViewById(R.id.avg1);
+        avg1.setText(""+game.getPlayers().get(0).getAverage());
 
         int next = findNextPlayer(game.getActive());
 
@@ -84,7 +89,8 @@ public class GameGUI extends AppCompatActivity {
         TextView points2 = findViewById(R.id.points2);
         points2.setText(""+game.getPlayers().get(next).getPoints());
 
-
+        TextView avg2 = findViewById(R.id.avg2);
+        avg2.setText(""+game.getPlayers().get(next).getAverage());
     }
 
     //Suche den Index des nächsten Spielers
@@ -133,9 +139,19 @@ public class GameGUI extends AppCompatActivity {
         points2.setText(""+next.getPoints());
     }
 
-    //Gib den aktuellen Average des Spielers aus
+    //Gib den aktuellen Average der Spielers aus
     public void showAverage(){
+        Player active = game.getActive();
+        Player last = game.getPlayers().get(findLastPlayer(active));
+        Player next = game.getPlayers().get(findNextPlayer(active));
 
+        TextView avg3 = findViewById(R.id.avg3);
+        avg3.setText(""+last.getAverage());
+        TextView avg1 = findViewById(R.id.avg1);
+        avg1.setText(""+active.getAverage());
+        System.out.println("Spieler "+active.getName()+" hat nun einen Average von "+active.getAverage()+" !");
+        TextView avg2 = findViewById(R.id.avg2);
+        avg2.setText(""+next.getAverage());
     }
 
     //Gib die aktuellen Punkte aller Spieler aus
@@ -286,6 +302,7 @@ public class GameGUI extends AppCompatActivity {
         player.setPoints(newPoints);
         addToHistory(player,points);
         showPoints();
+        showAverage();
         setSingleButtonOnActive();
     }
 
@@ -295,6 +312,7 @@ public class GameGUI extends AppCompatActivity {
         player.setPoints(newPoints);
         addToHistory(player,points);
         showPoints();
+        showAverage();
         setSingleButtonOnActive();
 
         AlertDialog.Builder alert = new AlertDialog.Builder(this);
@@ -302,6 +320,7 @@ public class GameGUI extends AppCompatActivity {
         alert.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int whichButton) {
                 Intent intent = new Intent(GameGUI.this,ChooseMenu.class);
+                sendInputToChoose(intent);
                 startActivity(intent);
             }
         });
@@ -323,6 +342,7 @@ public class GameGUI extends AppCompatActivity {
                 addToHistory(player,0);
             }
 
+            showAverage();
             next();
             setSingleButtonOnActive();
         }else{
@@ -333,6 +353,7 @@ public class GameGUI extends AppCompatActivity {
                 addToHistory(player,0);
             }
 
+            showAverage();
             next();
             setSingleButtonOnActive();
         }
@@ -363,6 +384,7 @@ public class GameGUI extends AppCompatActivity {
         }
 
         showPoints();
+        showAverage();
         clearDartsPoints();
         clearPoints();
     }
@@ -425,6 +447,7 @@ public class GameGUI extends AppCompatActivity {
             deleteLastPoints(active);
             deleteLastEntry(active);
             showPoints();
+            showAverage();
         }
 
         //Wenn keine Einträge für aktiven Spieler vorhanden und Undo wird gedrückt
@@ -450,6 +473,7 @@ public class GameGUI extends AppCompatActivity {
                 //Zeige Spieler und Punkte an
                 showPlayers(last,activ,next);
                 showPoints();
+                showAverage();
             }
         }
     }
@@ -471,6 +495,7 @@ public class GameGUI extends AppCompatActivity {
     }
 
     public void nextClick(View view) {
+        /*
         int nextIndex = game.getPlayers().indexOf(game.getActive())+1;
         if(nextIndex == game.getPlayers().size()){
             nextIndex = 0;
@@ -482,7 +507,21 @@ public class GameGUI extends AppCompatActivity {
         showPlayers(last, game.getActive(), next);
         clearDartsPoints();
         clearPoints();
-        showPoints();
+        showPoints();*/
+    }
+
+    public void sendInputToChoose(Intent intent){
+        //Daten per Intent.putExtra() an Game übergeben
+        intent.putExtra("points",String.valueOf(this.points));
+        intent.putExtra("in",this.in);
+        intent.putExtra("out",this.out);
+
+        ArrayList<String> names = new ArrayList<>();
+        for(Player player:players){
+            names.add(player.getName());
+        }
+
+        intent.putStringArrayListExtra("names",names);
     }
 
     //Wähle den nächsten Spieler
@@ -500,6 +539,7 @@ public class GameGUI extends AppCompatActivity {
         clearDartsPoints();
         clearPoints();
         showPoints();
+        showAverage();
     }
 
     //Hilfsfunktion für die Zahlen-Buttons, berechne Punkte, wähle nächsten Spieler nach drittem Dart
