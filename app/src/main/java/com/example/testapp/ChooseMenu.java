@@ -58,6 +58,7 @@ public class ChooseMenu extends AppCompatActivity {
         //Namen in Liste eintragen
         if(names!=null){
             for(String name: names){
+                this.names.add(name);
                 addToTable(name);
             }
         }
